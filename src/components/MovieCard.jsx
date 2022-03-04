@@ -14,14 +14,14 @@ const MovieCard = (props) => {
   return (
     <Link to={link}>
       <div
-        className="movie-card relative bg-top bg-no-repeat bg-cover pt-6 rounded-3xl mb-3 w-[200px] h-[300px] object-contain"
+        className="movie-card  bg-top bg-no-repeat bg-cover pt-6 rounded-3xl mb-3 w-[200px] h-[300px] object-contain"
         style={{ backgroundImage: `url(${bg})` }}
       >
         <Button className=" absolute top-[50%] left-[50%] transform -translate-x-2/4 -translate-y-2/4 scale-0 transition duration-200 ease-in box">
           <i className="bx bx-play"></i>
         </Button>
       </div>
-      <h3>{item.title || item.name}</h3>
+      <h3 className=" text-xs font-medium">{item.title || item.name}</h3>
     </Link>
   );
 };

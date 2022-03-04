@@ -32,16 +32,18 @@ const MovieList = (props) => {
   }, []);
 
   return (
-    <div className="flex items-center">
+    <div className="">
       <Swiper
-        spaceBetween={10}
+        className=" flex-shrink h-full relative transform"
         grabCursor={true}
+        spaceBetween={10}
         slidesPerView={"auto"}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+        // slidesPerView={5}
+        // onSlideChange={() => console.log("slide change")}
+        // onSwiper={(swiper) => console.log(swiper)}
       >
         {items.map((item, i) => (
-          <SwiperSlide className=" w-1/3 " key={i}>
+          <SwiperSlide className=" max-w-[240px] " key={i}>
             <MovieCard item={item} category={props.category} />
           </SwiperSlide>
         ))}
