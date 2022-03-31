@@ -1,10 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-// import './movie-grid.scss';
-
 import MovieCard from "./MovieCard";
-import Button, { OutlineButton } from "./Button";
 import Input from "./Input";
 
 import tmdbApi, { category, movieType, tvType } from "../api/tmdbApi";
@@ -70,62 +67,30 @@ const MovieGrid = (props) => {
   };
 
   return (
-    <div className="max-w-[1400px] mx-auto">
-      <div className="section flex items-center justify-center ">
-        <MovieSearch category={props.category} keyword={keyword} />
-      </div>
-      <div className="mt-8 movie-grid flex flex-wrap gap-7 items-center mx-4 auto-cols-fr justify-center ">
+    <>
+      <div className="section mb-3 flex flex-col items-center justify-center"></div>
+      <div
+        className=" mx-auto movie-grid grid grid-cols-5 mb-8"
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(200px)",
+        }}
+      >
         {items.map((item, i) => (
           <MovieCard category={props.category} item={item} key={i} />
         ))}
       </div>
       {page < totalPage ? (
-        <div className="movie-grid__loadmore text-center mt-7">
-          <OutlineButton className="small" onClick={loadMore}>
+        <div className="movie-grid__loadmore text-center">
+          <button
+            className="border border-gray-400 rounded-sm text-sm px-4 py-2"
+            onClick={loadMore}
+          >
             Load more
-          </OutlineButton>
+          </button>
         </div>
       ) : null}
-    </div>
-  );
-};
-
-const MovieSearch = (props) => {
-  const history = useNavigate();
-
-  const [keyword, setKeyword] = useState(props.keyword ? props.keyword : "");
-
-  const goToSearch = useCallback(() => {
-    if (keyword.trim().length > 0) {
-      history.push(`/${category[props.category]}/search/${keyword}`);
-    }
-  }, [keyword, props.category, history]);
-
-  useEffect(() => {
-    const enterEvent = (e) => {
-      e.preventDefault();
-      if (e.keyCode === 13) {
-        goToSearch();
-      }
-    };
-    document.addEventListener("keyup", enterEvent);
-    return () => {
-      document.removeEventListener("keyup", enterEvent);
-    };
-  }, [keyword, goToSearch]);
-
-  return (
-    <div className="movie-search">
-      <Input
-        type="text"
-        placeholder="Enter keyword"
-        value={keyword}
-        onChange={(e) => setKeyword(e.target.value)}
-      />
-      <Button className="small" onClick={goToSearch}>
-        Search
-      </Button>
-    </div>
+    </>
   );
 };
 

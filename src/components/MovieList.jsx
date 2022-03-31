@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { SwiperSlide, Swiper } from "swiper/react";
-import { Link } from "react-router-dom";
-import Button from "./Button";
 import tmdbApi, { category } from "../api/tmdbApi";
-import apiConfig from "../api/apiConfig";
 import MovieCard from "./MovieCard";
 
 const MovieList = (props) => {
@@ -38,9 +35,6 @@ const MovieList = (props) => {
         grabCursor={true}
         spaceBetween={10}
         slidesPerView={"auto"}
-        // slidesPerView={5}
-        // onSlideChange={() => console.log("slide change")}
-        // onSwiper={(swiper) => console.log(swiper)}
       >
         {items.map((item, i) => (
           <SwiperSlide className=" max-w-[240px] " key={i}>

@@ -22,7 +22,7 @@ const Home = () => {
         </div>
 
         <div className="section mt-5">
-          <div className="section__header flex items-center justify-between px-3 my-5">
+          <div className="section__header flex items-center justify-between  my-5">
             <h2 className="md:text-3xl font-medium">Top Rated Movies</h2>
             <Link to="/movie">
               <button className="border border-white flex items-center justify-center w-36 h-9 rounded-3xl">

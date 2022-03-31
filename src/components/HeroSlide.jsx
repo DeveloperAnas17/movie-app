@@ -1,13 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useNavigate } from "react-router-dom";
 import SwiperCore, { Autoplay } from "swiper";
-import Button, { OutlineButton } from "./Button";
-import Modal, { ModalContent } from "./Modal";
-import tmdbApi, { category, movieType } from "../api/tmdbApi";
-import apiConfig from "../api/apiConfig";
+import tmdbApi, { movieType } from "../api/tmdbApi";
 // Import Swiper styles
 import "swiper/css";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import HeroSlideItem from "./HeroSlideItem";
 
 const HomeSlider = () => {
@@ -22,7 +18,7 @@ const HomeSlider = () => {
         const response = await tmdbApi.getMoviesList(movieType.popular, {
           params,
         });
-        setMovieItems(response.results?.slice(1, 4));
+        setMovieItems(response.results?.slice(10, 20));
         console.log(response);
       } catch {
         console.log("error");
