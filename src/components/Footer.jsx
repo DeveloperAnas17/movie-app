@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 import bg from "../assets/footer-bg.jpg";
-import logo from "../assets/tmovie.png";
+import { RiMovie2Fill } from "react-icons/ri";
 
 const Footer = () => {
   return (
@@ -18,8 +17,12 @@ const Footer = () => {
       <div className="footer__content container max-w-[1400px] mx-auto  flex flex-col items-center justify-a ">
         <div className="footer__content__logo ">
           <div className="logo ">
-            <img className="h-14" src={logo} alt="" />
-            <Link to="/">tMovies</Link>
+            <Link to="/">
+              <div className="flex items-center">
+                <RiMovie2Fill className="text-red-700 m-2 h-14 w-14" />
+                <h2 className="text-white text-xl font-semibold">Timdam</h2>
+              </div>
+            </Link>
           </div>
         </div>
         <div className="footer__content__menus  mt-12 flex justify-between flex-1 w-[80%] md:w-[70%] flex-shrink ">

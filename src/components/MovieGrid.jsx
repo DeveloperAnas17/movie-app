@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
 import MovieCard from "./MovieCard";
-import Input from "./Input";
-
 import tmdbApi, { category, movieType, tvType } from "../api/tmdbApi";
 
 const MovieGrid = (props) => {
@@ -68,14 +65,7 @@ const MovieGrid = (props) => {
 
   return (
     <>
-      <div className="section mb-3 flex flex-col items-center justify-center"></div>
-      <div
-        className=" mx-auto movie-grid grid grid-cols-5 mb-8"
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(200px)",
-        }}
-      >
+      <div className="  movie-grid grid items-center  place-content-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:mb-8 place-items-center">
         {items.map((item, i) => (
           <MovieCard category={props.category} item={item} key={i} />
         ))}

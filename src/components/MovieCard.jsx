@@ -13,10 +13,13 @@ const MovieCard = (props) => {
   return (
     <Link to={link}>
       <div
-        className="movie-card bg-top bg-no-repeat bg-cover pt-6 rounded-3xl mb-3 w-[200px] h-[300px] object-contain"
+        className="movie-card bg-top bg-no-repeat bg-cover pt-6 rounded-3xl  w-[220px] h-[340px] object-contain"
         style={{ backgroundImage: `url(${bg})` }}
       ></div>
-      <h3 className=" text-xs font-medium">{item.title || item.name}</h3>
+
+      <h3 className=" text-lg font-medium mt-2 text-white text-center mb-8">
+        {item.title || item.name}
+      </h3>
     </Link>
   );
 };
